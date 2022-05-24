@@ -30,20 +30,24 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {matches.map((match, index) => (
-          <div
-            key={index}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            <span>{match.team1}</span>
-            <span>{match.score}</span>
-            <span>{match.team2}</span>
-          </div>
-        ))}
+        {!matches.length ? (
+          <h1>Loading Matches...</h1>
+        ) : (
+          matches.map((match, index) => (
+            <div
+              key={index}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <span>{match.team1}</span>
+              <span>{match.score}</span>
+              <span>{match.team2}</span>
+            </div>
+          ))
+        )}
       </main>
     </div>
   );
